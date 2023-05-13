@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if request.user.is_authenticated and request.user.groups.filter(name='Developers').exists %}
+<h1>Liste des tâches</h1>
+{% if task_list %}
+<ul>
+{% for task in task_list %}
+<li>{{ task.title }} - {{ task.due_date }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>Aucune tâche n'est disponible pour le moment.</p>
+{% endif %}
+{% else %}
+<p>Vous n'êtes pas autorisé à accéder à cette page.</p>
+{% endif %}
+{% endblock %}

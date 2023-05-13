@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import *
+from django.shortcuts import render
+
+def task_list(request):
+    return render(request, 'tasks/task_list.html')
 
 
 class HomeTemplateView(TemplateView):

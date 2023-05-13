@@ -1,11 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!--Login--> 
-<div class="container py-5">
-  <h1>Login</h1>
-  <form method="POST">
-    {% csrf_token %}
-    {{ login_form|crispy }}
-    <button class="btn btn-primary" type="submit">Login</button>
-  </form>
-  <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
-</div>
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <title>Responsive Login Form Sign In Sign Up</title>
+    </head>
+    <body>
+        
+        <div class="login">
+            <div class="login__content">
+                <div class="login__img">
+                    <img src="{%static 'assets/img/vec.png' %}" alt="">
+                </div>
+
+                <div class="login__forms">
+                    <form action="" class="login__registre" id="login-in">
+                        <h1 class="login__title">Sign In</h1>
+    
+                        <div class="login__box">
+                            <i class='bx bx-user login__icon'></i>
+                            <input type="text" placeholder="Enter Username" name="username" >
+                        </div>
+    
+                        <div class="login__box">
+                            <i class='bx bx-lock-alt login__icon'></i>
+                            <input type="password" placeholder="Enter Password" name="password" >
+                        </div>
+                        <button type="submit">Login</button>
+                        
+                    </form>
+                     </div>
+            </div>
+        
+        <center>
+      <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th> Salary </th>
+          <th> User Name </th>
+          <th> password </th>
+        <tr>
+      </thead>
+      <tbody>
+      {% for item in ans %}
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>{{ item.position }}</td>
+          <td>{{ item.sal }}</td>
+          <td>{{ item.user_name }}</td>
+          <td>{{ item.password }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+            </center>
+           </div>    
+        <footer class="footer">
+            <div class="footer">
+                <p>&#169; Created by Edit 10 and Meraki Lab - 2021. All rights reserved.</p>
+            </div>
+           </footer>
+
+        <!--===== MAIN JS =====-->
+        <script src="{%static 'assets/js/login.js' %}"></script>
+    </body>
+</html>
